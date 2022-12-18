@@ -42,3 +42,15 @@ CREATE TABLE Works (
 CREATE TABLE Accelerators (
 	Id SERIAL PRIMARY KEY
 )
+
+-- STEP 1: Added initial Tables
+
+CREATE TABLE AcceleratorsProjects (
+	AcceleratorId INT REFERENCES Accelerators(Id),
+	ProjectId INT REFERENCES Projects(Id)
+)
+
+CREATE TABLE ScientistsWorks (
+	ScientistId INT REFERENCES Scientists(Id),
+	WorkId INT REFERENCES Scientists(Id)
+)
