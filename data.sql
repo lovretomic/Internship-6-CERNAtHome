@@ -18,9 +18,13 @@ CREATE TABLE Hotels (
 	Capacity INT NOT NULL,
 	Location VARCHAR(30) NOT NULL
 )
+ALTER TABLE Hotels
+	ADD Title VARCHAR(30) NOT NULL
+
 
 CREATE TABLE Scientists (
 	Id SERIAL PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL,
 	CountryId INT REFERENCES Countries(Id),
 	Gender gender NOT NULL,
 	Profession profession NOT NULL,
@@ -40,7 +44,8 @@ CREATE TABLE Works (
 )
 
 CREATE TABLE Accelerators (
-	Id SERIAL PRIMARY KEY
+	Id SERIAL PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL
 )
 
 -- STEP 1: Added initial Tables
@@ -54,3 +59,17 @@ CREATE TABLE ScientistsWorks (
 	ScientistId INT REFERENCES Scientists(Id),
 	WorkId INT REFERENCES Scientists(Id)
 )
+
+-- STEP 2: Added junction Tables
+	
+INSERT INTO Accelerators (Name) VALUES
+	('Akc1'),('Akc2'),('Akc3'),('Akc4'),('Akc5')
+
+INSERT INTO Projects (Title) VALUES
+	('Project1'),
+	('Project2'),
+	('Project3'),
+	('Project4'),
+	('Project5')
+
+INSERT INTO Works
