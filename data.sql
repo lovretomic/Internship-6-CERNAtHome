@@ -29,7 +29,8 @@ CREATE TABLE Scientists (
 	CountryId INT REFERENCES Countries(Id),
 	Gender gender NOT NULL,
 	Profession profession NOT NULL,
-	HotelId INT REFERENCES Hotels(Id)
+	HotelId INT REFERENCES Hotels(Id),
+	DateOfBirth TIMESTAMP
 )
 
 CREATE TABLE Projects (
@@ -41,7 +42,8 @@ CREATE TABLE Works (
 	Id SERIAL PRIMARY KEY,
 	Title VARCHAR(60) NOT NULL,
 	NumberOfCitations INT NOT NULL,
-	ProjectId INT REFERENCES Projects(Id)
+	ProjectId INT REFERENCES Projects(Id),
+	Published TIMESTAMP
 )
 
 CREATE TABLE Accelerators (
@@ -84,22 +86,22 @@ INSERT INTO Projects(Title) VALUES
 ('ALPHA'),
 ('BASE')
 
-INSERT INTO Works(Title, NumberOfCitations, ProjectId) VALUES
-('Forward-backward multiplicity', 48, 4),
-('Technical viability of PLC systems', 75, 2),
-('Transverse beam instabilities', 54, 8),
-('Quantitative structure', 0, 3),
-('AWAKE design report', 36, 1),
-('Non-Standard Higgs Physics', 40, 7),
-('Liposomal delivery', 23, 7),
-('Advanced Linear Collider Report', 75, 6),
-('Elementary statistics and probability', 68, 3),
-('The Proton Synchrotron Booster', 17, 5),
-('The ALICE experiment', 73, 8),
-('Demonstration of bunch triple splitting', 3, 4),
-('Transverse momentum spectra', 44, 3),
-('Evidence for a new state of matter', 41, 5),
-('Dark sector physics', 27, 1)
+INSERT INTO Works(Title, NumberOfCitations, ProjectId, Published) VALUES
+('Forward-backward multiplicity', 48, 4, '2002-07-07'),
+('Technical viability of PLC systems', 75, 2, '2002-09-05'),
+('Transverse beam instabilities', 54, 8, '2003-04-17'),
+('Quantitative structure', 0, 3, '2003-06-04'),
+('AWAKE design report', 36, 1, '2003-12-21'),
+('Non-Standard Higgs Physics', 40, 7, '2004-03-14'),
+('Liposomal delivery', 23, 7, '2005-11-28'),
+('Advanced Linear Collider Report', 75, 6, '2005-12-22'),
+('Elementary statistics and probability', 68, 3, '2006-02-15'),
+('The Proton Synchrotron Booster', 17, 6, '2006-04-02'),
+('The ALICE experiment', 73, 8, '2007-01-18'),
+('Demonstration of bunch triple splitting', 3, 4, '2007-07-24'),
+('Transverse momentum spectra', 44, 3, '2008-01-28'),
+('Evidence for a new state of matter', 41, 5, '2008-07-06'),
+('Dark sector physics', 27, 1, '2009-05-06')
 
 INSERT INTO Countries(Name, Population, PPPpC) VALUES
 ('Germany', 83000000, 41000),
@@ -114,17 +116,17 @@ INSERT INTO Hotels(Title, Capacity, Location) VALUES
 ('Hotel Continental', 721, 'Lausanne'),
 ('B&B Hotel', 453, 'Nyon')
 
-INSERT INTO Scientists(FirstName, LastName, CountryId, Gender, Profession, HotelId) VALUES
-('Agatha','Kneib', 6, 'F', 'Programmer', 1),
-('Trini','Simons', 3, 'F', 'Physicist', 2),
-('Gordon','Santana', 3, 'M', 'Physicist', 2),
-('Leonard','Arbeider', 2, 'M', 'Programmer', 1),
-('Safa','Darnell', 4, 'F', 'Engineer', 1),
-('Ernest','Head', 6, 'M', 'Physicist', 3),
-('Sanna','MacGowan', 4, 'U', 'Programmer', 2),
-('Rocco','Walther', 3, 'M', 'Scientist', 1),
-('Anton','Horn', 1, 'M', 'Scientist', 1),
-('Anna','Ruoho', 3, 'O', 'Programmer', 3)
+INSERT INTO Scientists(FirstName, LastName, CountryId, Gender, Profession, HotelId, DateOfBirth) VALUES
+('Agatha','Kneib', 6, 'F', 'Programmer', 1, '1980-12-23'),
+('Trini','Simons', 3, 'F', 'Physicist', 2, '1982-12-19'),
+('Gordon','Santana', 3, 'M', 'Physicist', 2, '1990-06-21'),
+('Leonard','Arbeider', 2, 'M', 'Programmer', 1, '1994-09-15'),
+('Safa','Darnell', 4, 'F', 'Engineer', 1, '1995-02-18'),
+('Ernest','Head', 6, 'M', 'Physicist', 3, '1995-12-09'),
+('Sanna','MacGowan', 4, 'U', 'Programmer', 2, '1996-05-30'),
+('Rocco','Walther', 3, 'M', 'Scientist', 1, '1997-06-23'),
+('Anton','Horn', 1, 'M', 'Scientist', 1, '1999-10-13'),
+('Anna','Ruoho', 3, 'O', 'Programmer', 3, '2000-09-06')
 
 INSERT INTO AcceleratorsProjects(AcceleratorId, ProjectId) VALUES
 (8, 3),
