@@ -103,6 +103,10 @@ INSERT INTO Works(Title, NumberOfCitations, ProjectId, Published) VALUES
 ('Evidence for a new state of matter', 41, 5, '2008-07-06'),
 ('Dark sector physics', 27, 1, '2009-05-06')
 
+INSERT INTO Works(Title, NumberOfCitations, ProjectId, Published) VALUES
+('New Physics', 83, 4, '2016-07-01'),
+('New Physics 2', 12, 2, '2017-01-02')
+
 INSERT INTO Countries(Name, Population, PPPpC) VALUES
 ('Germany', 83000000, 41000),
 ('Italy', 59000000, 46000),
