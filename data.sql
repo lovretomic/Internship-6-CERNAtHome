@@ -24,7 +24,8 @@ ALTER TABLE Hotels
 
 CREATE TABLE Scientists (
 	Id SERIAL PRIMARY KEY,
-	Name VARCHAR(30) NOT NULL,
+	FirstName VARCHAR(30) NOT NULL,
+	LastName VARCHAR(30) NOT NULL,
 	CountryId INT REFERENCES Countries(Id),
 	Gender gender NOT NULL,
 	Profession profession NOT NULL,
@@ -113,17 +114,17 @@ INSERT INTO Hotels(Title, Capacity, Location) VALUES
 ('Hotel Continental', 721, 'Lausanne'),
 ('B&B Hotel', 453, 'Nyon')
 
-INSERT INTO Scientists(Name, CountryId, Gender, Profession, HotelId) VALUES
-('Agatha Kneib', 6, 'F', 'Programmer', 1),
-('Trini Simons', 3, 'F', 'Physicist', 2),
-('Gordon Santana', 3, 'M', 'Physicist', 2),
-('Leonard Arbeider', 2, 'M', 'Programmer', 1),
-('Safa Darnell', 4, 'F', 'Engineer', 1),
-('Ernest Head', 6, 'M', 'Physicist', 3),
-('Sanna MacGowan', 4, 'U', 'Programmer', 2),
-('Rocco Walther', 3, 'M', 'Scientist', 1),
-('Anton Horn', 1, 'M', 'Scientist', 1),
-('Anna Ruoho', 3, 'O', 'Programmer', 3)
+INSERT INTO Scientists(FirstName, LastName, CountryId, Gender, Profession, HotelId) VALUES
+('Agatha','Kneib', 6, 'F', 'Programmer', 1),
+('Trini','Simons', 3, 'F', 'Physicist', 2),
+('Gordon','Santana', 3, 'M', 'Physicist', 2),
+('Leonard','Arbeider', 2, 'M', 'Programmer', 1),
+('Safa','Darnell', 4, 'F', 'Engineer', 1),
+('Ernest','Head', 6, 'M', 'Physicist', 3),
+('Sanna','MacGowan', 4, 'U', 'Programmer', 2),
+('Rocco','Walther', 3, 'M', 'Scientist', 1),
+('Anton','Horn', 1, 'M', 'Scientist', 1),
+('Anna','Ruoho', 3, 'O', 'Programmer', 3)
 
 INSERT INTO AcceleratorsProjects(AcceleratorId, ProjectId) VALUES
 (8, 3),
